@@ -21,22 +21,23 @@ body {
 }
 
 .title {
-    margin: 20px 0;
+    margin: 16px 0;
     padding: 0;
     text-align: center;
-    line-height: 2px;
+    line-height: 5px;
 }
 
 .title h2 {
     font-family: 'Righteous', cursive;
-    font-size: 35px;
-    color: #3c484e;
+    font-size: 25px;
+    color: #673888;
+    letter-spacing: 1.5px;
 }
 
 .title a,
 .title a:hover {
     text-decoration: none;
-    color: #3c484e;
+    color: #9055b9;
 }
 
 .title span {
@@ -46,6 +47,10 @@ body {
 .container {
     margin: 20px auto;
     width: 300px;
+}
+
+#balance {
+    color: #9055b9;
 }
 
 h1 {
@@ -103,7 +108,8 @@ label {
 }
 
 .symbol {
-    font-size: small;
+    font-size: 12px;
+    font-style: italic;
 }
 
 input[type='text'],
@@ -117,7 +123,7 @@ input[type='number'] {
 }
 
 .btn {
-    background-color: #673888;
+    background-color: #9055b9;
     box-shadow: var(--box-shadow);
     border-radius: 4px;
     color: #fff;
