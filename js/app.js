@@ -6,17 +6,36 @@ const form = document.getElementById('form');
 const text = document.getElementById('text');
 const amount = document.getElementById('amount');
 
-const dummyTransactions = [
-    {id: 1, text: 'Cellphone', amount: -4600 },
-    {id: 2, text: 'Salary', amount: 8500.50 },
-    {id: 3, text: 'Online Course', amount: -600 },
-    {id: 4, text: 'Gaming Controller', amount: -750 }
-];
-
-let transactions = dummyTransactions;
+let transactions = [];
 
 // add transaction
-const addTransaction = transaction => {
+const addTransaction = e => {
+    e.preventDefault();
+
+    if (text.value.trim() === '' || amount.value.trim() === '') {
+        alert('Oops! Please add an item name and amount.');
+    } else {
+        const transaction = {
+            id: generateId(),
+            text: text.value,
+            amount: +amount.value   // converts value into number by adding plus(+) symbol
+        };
+        transactions.push(transaction);
+        displayTransaction(transaction);
+        updateValues();
+
+        text.value = '';
+        amount.value = '';
+    }
+}
+
+// generate random id
+const generateId = () => {
+    return Math.floor(Math.random() * 1000000); // 6 characters
+}
+
+// display transaction
+const displayTransaction = transaction => {
     const sign = transaction.amount < 0 ? '-' : '+';
     const item = document.createElement('li');
 
@@ -24,7 +43,7 @@ const addTransaction = transaction => {
 
     item.innerHTML = `
         ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span>
-        <button class="delete-btn">x</button>
+        <button class="delete-btn" onclick="deleteTransaction(${transaction.id})">x</button>
         `;
     
     list.appendChild(item);
@@ -53,12 +72,19 @@ const updateValues = () => {
     moneyMinus.innerHTML = `<span>&#8369</span>${expense}`;
 }
 
+// delete transaction by id
+const deleteTransaction = id => {
+    transactions = transactions.filter(transaction => transaction.id !== id);
+    init();
+}
+
 // init
 const init = () => {
     list.innerHTML = '';
-    transactions.forEach(addTransaction);
-
+    transactions.forEach(displayTransaction);
     updateValues();
 }
 
 init();
+
+form.addEventListener('submit', addTransaction);

@@ -79,6 +79,10 @@ label {
     margin: 10px 0;
 }
 
+.symbol {
+    font-size: small;
+}
+
 input[type='text'],
 input[type='number'] {
     border: 1px solid #dedede;
