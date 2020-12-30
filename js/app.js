@@ -8,7 +8,7 @@ const amount = document.getElementById('amount');
 
 const dummyTransactions = [
     {id: 1, text: 'Cellphone', amount: -4600 },
-    {id: 2, text: 'Salary', amount: 5000 },
+    {id: 2, text: 'Salary', amount: 8500.50 },
     {id: 3, text: 'Online Course', amount: -600 },
     {id: 4, text: 'Gaming Controller', amount: -750 }
 ];
@@ -30,10 +30,35 @@ const addTransaction = transaction => {
     list.appendChild(item);
 }
 
+// update balance
+const updateValues = () => {
+    const amounts = transactions.map(transaction => transaction.amount);
+
+    const total = amounts
+        .reduce((acc, item) => (acc += item), 0)
+        .toFixed(2);
+
+    const income = amounts
+        .filter(item => item > 0)
+        .reduce((acc, item) => (acc += item), 0)
+        .toFixed(2);
+
+    const expense = (amounts
+        .filter(item => item < 0)
+        .reduce((acc, item) => (acc += item), 0) * -1)
+        .toFixed(2);
+
+    balance.innerHTML = `<span>&#8369</span>${total}`;
+    moneyPlus.innerHTML = `<span>&#8369</span>${income}`;
+    moneyMinus.innerHTML = `<span>&#8369</span>${expense}`;
+}
+
 // init
 const init = () => {
     list.innerHTML = '';
     transactions.forEach(addTransaction);
+
+    updateValues();
 }
 
 init();
