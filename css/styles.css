@@ -3,11 +3,9 @@
 :root {
     --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
 * {
     box-sizing: border-box;
 }
-
 body {
     background-color: #f7f7f7;
     display: flex;
@@ -19,56 +17,46 @@ body {
     padding: 0;
     font-family: 'Lato', sans-serif;
 }
-
 .title {
     margin: 16px 0;
     padding: 0;
     text-align: center;
     line-height: 5px;
 }
-
 .title h2 {
     font-family: 'Righteous', cursive;
     font-size: 25px;
     color: #673888;
     letter-spacing: 1.5px;
 }
-
 .title a,
 .title a:hover {
     text-decoration: none;
     color: #9055b9;
 }
-
 .title span {
     font-size: 12px;
 }
-
 .container {
     margin: 20px auto;
     width: 300px;
 }
-
 #balance {
     color: #9055b9;
 }
-
 h1 {
     letter-spacing: 1px;
     margin: 0;
 }
-
 h3 {
     border-bottom: 1px solid #bbb;
     padding-bottom: 10px;
     margin: 40px 0 10px;
 }
-
 h4 {
     margin: 0;
     text-transform: uppercase;
 }
-
 .inc-exp-container {
     background-color: white;
     box-shadow: var(--box-shadow);
@@ -78,40 +66,32 @@ h4 {
     display: flex;
     justify-content: space-between;
 }
-
 .inc-exp-container > div {
     flex: 1;
     text-align: center;
 }
-
 .inc-exp-container > div:first-of-type {
     border-right: 1px solid #dedede;
 }
-
 .money {
     font-size: 20px;
     letter-spacing: 1px;
     margin: 5px 0;
 }
-
 .money.plus {
     color: #00b159;
 }
-
 .money.minus {
     color: #d11141;
 }
-
 label {
     display: inline-block;
     margin: 10px 0;
 }
-
 .symbol {
     font-size: 12px;
     font-style: italic;
 }
-
 input[type='text'],
 input[type='number'] {
     border: 1px solid #dedede;
@@ -121,7 +101,6 @@ input[type='number'] {
     padding: 10px;
     width: 100%;
 }
-
 .btn {
     background-color: #9055b9;
     box-shadow: var(--box-shadow);
@@ -135,18 +114,15 @@ input[type='number'] {
     width: 100%;
     cursor: pointer;
 }
-
 .btn:focus,
 .delete-btn:focus {
     outline: 0;
 }
-
 .list {
     list-style-type: none;
     padding: 0;
     margin-bottom: 40px;
 }
-
 .list li {
     background-color: white;
     box-shadow: var(--box-shadow);
@@ -158,15 +134,12 @@ input[type='number'] {
     padding: 10px;
     margin: 10px 0;
 }
-
 .list li.plus {
     border-right: 5px solid #00b159;
  }
-
 .list li.minus {
     border-right: 5px solid #d11141;
 }
-
 .delete-btn {
     background-color: #e74c3c;
     border: 0;
@@ -182,7 +155,6 @@ input[type='number'] {
     transition: opacity 0.3s ease;
     cursor: pointer;
 }
-
 .list li:hover .delete-btn {
     opacity: 1; /* show */
 }
